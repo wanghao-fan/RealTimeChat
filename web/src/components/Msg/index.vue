@@ -1,21 +1,16 @@
 <template>
   <div class="msg">
-    <News type="left" />
-    <News type="left" />
-    <News type="right" />
-    <News type="right" />
+    <News v-for="(item,index) in list" :key="index" :item="item" />
   </div>
 </template>
 <script>
 import News from "./news";
+import { mapState } from "vuex"
 export default {
   components: { News },
-  data() {
-    return {};
-  },
-  created() {},
-  mounted() {},
-  methods: {}
+  computed:{
+    ...mapState('message',['list'])
+  }
 };
 </script>
 <style scoped lang="scss">

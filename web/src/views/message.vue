@@ -1,8 +1,7 @@
 <template>
   <el-container style="height: 97vh;">
-    <el-aside width="200px">123</el-aside>
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>聊天室</el-header>
       <el-main>
         <Msg />
       </el-main>
@@ -55,14 +54,8 @@ export default {
     Msg
   },
   data() {
-    const item = {
-      date: "2016-05-02",
-      name: "王小虎",
-      address: "上海市普陀区金沙江路 1518 弄"
-    };
     return {
-      tableData: Array(20).fill(item)
     };
   }
-};
+}
 </script>

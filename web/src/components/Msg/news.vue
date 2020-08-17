@@ -1,43 +1,30 @@
 <template>
-  <!-- <div class="news clearfix">
-    <div class="fl">
-      <div class="user-img">
-        <el-avatar
-          src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-        ></el-avatar>
-      </div>
-    </div>
-    <p class="content fl" align="left">
-      你好呀，朋友，这是第一次用这个软件 聊聊天好吗
-      你好呀，朋友，这是第一次用这个软件 聊聊天好吗
-      你好呀，朋友，这是第一次用这个软件 聊聊天好吗
-      你好呀，朋友，这是第一次用这个软件 聊聊天好吗
-      你好呀，朋友，这是第一次用这个软件 聊聊天好吗
-    </p>
-  </div> -->
   <div class="news clearfix">
-    <div :class="[type == 'left' ? 'fl' : 'fr']">
+    <div :class="[item.type == 'left' ? 'fl' : 'fr']">
       <div class="user-img">
         <el-avatar
           src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
         ></el-avatar>
+        {{item.username}}
       </div>
     </div>
-    <p :class="['content', type == 'left' ? 'fl' : 'fr']" align="left">
-      你好呀，朋友，这是第一次用这个软件 聊聊天好吗
-      你好呀，朋友，这是第一次用这个软件 聊聊天好吗
-      你好呀，朋友，这是第一次用这个软件 聊聊天好吗
-      你好呀，朋友，这是第一次用这个软件 聊聊天好吗
-      你好呀，朋友，这是第一次用这个软件 聊聊天好吗
+    <p :class="['content', item.type == 'left' ? 'fl' : 'fr']" align="left">
+      {{item.msg}}
     </p>
   </div>
 </template>
 <script>
 export default {
   props: {
-    type: {
-      type: String,
-      default: "left"
+    item:{
+      type: Object,
+      default: function(){
+        return {
+          msg: null,
+          username: null,
+          type: null
+        }
+      }
     }
   },
   data() {
